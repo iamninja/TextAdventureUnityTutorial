@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour {
     public void DisplayRoomText()
     {
         UnpackRoom();
-        string joinedInteractionDescriptions = string.Join("/n", interactionDescriptionsInRoom.ToArray());
+        string joinedInteractionDescriptions = string.Join("\n", interactionDescriptionsInRoom.ToArray());
         string combinedText = roomNavigation.currentRoom.description + "\n" 
             + joinedInteractionDescriptions;
 
@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour {
 
     public void DisplayLoggedText()
     {
-        string logAsText = string.Join("/n", actionLog.ToArray());
+        string logAsText = string.Join("\n", actionLog.ToArray());
 
         displayText.text = logAsText;
     }
