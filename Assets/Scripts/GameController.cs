@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
     public Text displayText;
 
     [HideInInspector] public RoomNavigation roomNavigation;
+    [HideInInspector] public List<string> interactionDescriptionsInRoom = new List<string>();
 
     // This is the log
     List<string> actionLog = new List<string>();
@@ -26,7 +27,10 @@ public class GameController : MonoBehaviour {
 
     public void DisplayRoomText()
     {
-        string combinedText = roomNavigation.currentRoom.description + "\n";
+        UnpackRoom();
+        string joinedInteractionDescriptions = string.Join("/n", interactionDescriptionsInRoom.ToArray());
+        string combinedText = roomNavigation.currentRoom.description + "\n" 
+            + joinedInteractionDescriptions;
 
         LogStringWithReturn(combinedText);
     }
@@ -41,6 +45,11 @@ public class GameController : MonoBehaviour {
         string logAsText = string.Join("/n", actionLog.ToArray());
 
         displayText.text = logAsText;
+    }
+
+    void UnpackRoom()
+    {
+        roomNavigation.UnpackExitsInRoom();
     }
 	
 	// Update is called once per frame
