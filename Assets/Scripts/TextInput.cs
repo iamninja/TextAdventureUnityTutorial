@@ -18,8 +18,19 @@ public class TextInput : MonoBehaviour
     void AcceptStringInput(string userInput)
     {
         userInput = userInput.ToLower();
-
         controller.LogStringWithReturn(userInput);
+
+        char[] delimeterCharacters = { ' ' };
+        string[] seperatedInputWords = userInput.Split(delimeterCharacters);
+
+        for (int i = 0; i < controller.inputActions.Length; i++)
+        {
+            InputAction inputAction = controller.inputActions[i];
+            if (inputAction.keyWord == seperatedInputWords[0])
+            {
+                inputAction.RespondToInput(controller, seperatedInputWords);
+            }
+        }
 
         InputComplete();
     }
