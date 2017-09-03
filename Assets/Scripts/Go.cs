@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "TextAdventure/InputActoins/Go")]
+[CreateAssetMenu(menuName = "TextAdventure/InputActions/Go")]
 public class Go : InputAction
 {
 
