@@ -27,7 +27,10 @@ public class GameController : MonoBehaviour {
 
     public void DisplayRoomText()
     {
+        ClearCollectionsForNewRoom();
+
         UnpackRoom();
+
         string joinedInteractionDescriptions = string.Join("\n", interactionDescriptionsInRoom.ToArray());
         string combinedText = roomNavigation.currentRoom.description + "\n" 
             + joinedInteractionDescriptions;
@@ -50,6 +53,12 @@ public class GameController : MonoBehaviour {
     void UnpackRoom()
     {
         roomNavigation.UnpackExitsInRoom();
+    }
+
+    void ClearCollectionsForNewRoom()
+    {
+        interactionDescriptionsInRoom.Clear();
+        roomNavigation.ClearExits();
     }
 	
 	// Update is called once per frame
