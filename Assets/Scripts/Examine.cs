@@ -6,8 +6,8 @@ using UnityEngine;
 public class Examine : InputAction
 {
 
-    public override void RespondToInput(GameController controller, string[] seperatedInputWords)
+    public override void RespondToInput(GameController controller, string[] separatedInputWords)
     {
-        controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(controller.interactableItems.examineDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+        controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(controller.interactableItems.examineDictionary, separatedInputWords[0], separatedInputWords[1]));
     }
 }
